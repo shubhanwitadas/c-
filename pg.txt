@@ -1,0 +1,105 @@
+**//2. Given an array, cyclically rotate the array clockwise by one.//**
+x=[]  
+for i in range(int(input("How many elements are in array : "))):  
+  x.append(int(input())) 
+print(x)
+def rotate(x, n): 
+    y = x[n - 1] 
+    for i in range(n - 1, 0, -1): 
+        x[i] = x[i - 1]; 
+    x[0] = y; 
+n = len(x) 
+rotate(x, n) 
+print("Rotated array is") 
+print(x)
+
+5. A sorted array is rotated at some unknown point, find the minimum element in it.
+x=[]  
+for i in range(int(input("How many elements are in array : "))):  
+  x.append(int(input())) 
+print(x)
+y=min(x)
+print(y)
+
+10.10. You have been given an array and you have to make a program to convert that array
+such that positive elements occur at even numbered places in the array and negative
+elements occur at odd numbered places in the array. We have to do it in place. There
+can be unequal number of positive and negative values and the extra values have to
+left as it is.
+#function
+def arrange(a, d) :
+
+     
+    positive = 0
+    negative = 1
+ 
+    while (True) :
+        
+        while (positive < size and a[positive] >= 0) :
+            positive = positive + 2
+
+ 
+        while (negative < size and a[negative] <= 0) :
+            negative = negative + 2
+
+        if (positive < size and negative < size) :
+            temp = a[positive]
+            a[positive] = a[negative]
+            a[negative] = temp
+            return (a)
+#Driver code
+x=[]  
+for i in range(int(input("How many elements are in array : "))):  
+  x.append(int(input())) 
+print(x)
+size=len(x)
+x=arrange(x, size)
+print(x)
+
+9. Given an array of positive and negative numbers, arrange them such that all negative
+integers appear before all the positive integers in the array without using any
+additional data structure like hash table, arrays, etc. The order of appearance should
+be maintained.
+def posneg(a,d):
+  for i in range(1, d):
+    key = a[i]
+    if (key > 0):
+      continue
+    j = i - 1
+    while (j >= 0 and a[j] > 0):
+       a[j + 1] = a[j]
+       j = j - 1
+    a[j + 1] = key
+  return a
+
+x=[]  
+for i in range(int(input("How many elements are in array : "))):  
+  x.append(int(input())) 
+print(x)
+size=len(x)
+x=posneg(x, size)
+print(x)
+
+8. Given an array of elements of length N, ranging from 0 to N – 1. All elements may not
+be present in the array. If the element is not present then there will be -1 present in
+the array. Rearrange the array such that A[i] = i and if i is not present, display -1 at
+that place.
+def gapfix(a, n):  
+    for i in range(n):
+        for j in range(n):
+             if (a[j] == i):
+                a[j], a[i] = a[i], a[j]
+    for i in range(n):
+      if (a[i] != i):
+        a[i] = -1
+    print("after filling gap")
+ 
+    
+    return a
+x=[]  
+for i in range(int(input("How many elements are in array : "))):  
+  x.append(int(input())) 
+print(x)
+size=len(x)
+x=gapfix(x, size)
+print(x)
